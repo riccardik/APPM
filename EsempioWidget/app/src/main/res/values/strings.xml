@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">EsempioWidget</string>
+    <string name="action_settings">Settings</string>
+    <string name="stringa_prompt">Seleziona la residenza</string>
+    <string-array name="residenze">
+        <item>Genova</item>
+        <item>Milano</item>
+        <item>Torino</item>
+        <item>Crocefieschi</item>
+
+    </string-array>
+
+
+</resources>
