@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ActivityToAnOther</string>
+    <string-array name="cibo">
+        <item>Pizza</item>
+        <item>Pasta al pesto</item>
+        <item>Lasagna</item>
+    </string-array>
+
 </resources>
