@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     RadioButton rb1, rb2, rb3;
     TextView tv1;
     String _cibosel;
+    RadioGroup rg1;
 
 
 
@@ -31,8 +32,9 @@ public class MainActivity extends AppCompatActivity {
         rb2=(RadioButton)findViewById(R.id.rdb2);
         rb3=(RadioButton)findViewById(R.id.rdb3);
         tv1=(TextView) findViewById(R.id.tv1);
+        rg1=(RadioGroup) findViewById(R.id.rg1);
 
-        rb1.setOnClickListener(new View.OnClickListener()
+        /*rb1.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
@@ -58,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
 
@@ -67,7 +69,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
+                int _idrb=rg1.getCheckedRadioButtonId();
+                RadioButton rsel=(RadioButton)findViewById(_idrb);
+                _cibosel=rsel.getText().toString();
+
                 tv1.setText(_cibosel);
+
+
+
+
 
                 Intent manda=new Intent(getApplicationContext(),DIsplayActivity.class );
                 manda.putExtra("cibosel", _cibosel);
