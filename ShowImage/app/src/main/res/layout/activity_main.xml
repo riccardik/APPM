@@ -23,6 +23,7 @@
 
     <Button
         android:id="@+id/bttButton"
+        android:text="Download Image"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
