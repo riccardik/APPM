@@ -80,10 +80,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
                 Intent manda=new Intent(getApplicationContext(),DIsplayActivity.class );
                 manda.putExtra("cibosel", _cibosel);
                 startActivity(manda);
+
 
             }
             });
