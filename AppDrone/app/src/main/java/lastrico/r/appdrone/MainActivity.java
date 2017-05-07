@@ -75,14 +75,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.training) {
-            String _cibosel="cianoe";
-
 
             Intent manda = new Intent( getApplicationContext(),Training.class);
 
             startActivity(manda);
 
         } else if (id == R.id.recognition) {
+            Intent manda = new Intent( getApplicationContext(),Recognition.class);
+
+            startActivity(manda);
 
         }
 

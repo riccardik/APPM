@@ -24,7 +24,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Training  extends Activity  implements NavigationView.OnNavigationItemSelectedListener {
+public class Recognition  extends Activity implements NavigationView.OnNavigationItemSelectedListener {
 
 
 
@@ -32,11 +32,11 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
     //TextView myTextView = null;
     Button bttClickMe = null;
     Button bttClickMe2 = null;
-    Button bttClickMe4 = null;
+
     Bitmap myBitmap = null;
     int REQUEST_IMAGE_CAPTURE = 1;
     ProgressDialog progress;
-    SeekBar mySeekBar;
+
     ManipulateImage _myCV;
     //int manipulationSelected = 1;
 
@@ -51,7 +51,7 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.training_layout);
+        setContentView(R.layout.recognition_layout);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,19 +60,13 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
             }
         });
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_training);
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_recognition);
         navigationView.setNavigationItemSelectedListener(this);
 
 
         myImageView = (ImageView) findViewById(R.id.etImage);
         bttClickMe2 = (Button) findViewById(R.id.bttClickMe2);
-        bttClickMe4 = (Button) findViewById(R.id.bttClickMe4);
         progress = new ProgressDialog(this);
-        mySeekBar = (SeekBar) findViewById(R.id.seekBar);
-
-        //initialize SeekBar correctly
-        mySeekBar.setProgress(128); //128 ad default value
-        mySeekBar.setMax(255);
 
         //initialize ImageView content
         myBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
@@ -88,41 +82,6 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
                 _myCV.execute("");
             }
         });
-        //reset button
-        bttClickMe4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myImageView.setImageBitmap(myBitmap);
-            }
-        });
-
-        //Binary with Seek bar threshold manipulation
-        mySeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            int progressChanged = 0;
-
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
-                progressChanged = progress;
-            }
-
-            public void onStartTrackingTouch(SeekBar seekBar) {
-            }
-
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                //visualize number selected with toast
-                Toast.makeText(Training.this,"Soglia: "+ progressChanged, Toast.LENGTH_SHORT).show();
-
-                //execute manipulation
-                _myCV = new ManipulateImage(progress, myImageView, myBitmap, 2, progressChanged);
-                _myCV.execute("");
-            }
-        });
-
-
-
-
-
-
-
 
     }
 
@@ -172,13 +131,14 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
         int id = item.getItemId();
 
         if (id == R.id.training) {
+            Intent manda = new Intent( getApplicationContext(),Training.class);
+
+            startActivity(manda);
+
 
 
 
         } else if (id == R.id.recognition) {
-            Intent manda = new Intent( getApplicationContext(),Recognition.class);
-
-            startActivity(manda);
 
         }
 
