@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import lastrico.r.appdrone.ImageSaver;
+
 
 public class Training  extends Activity  implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -59,6 +61,26 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
                 dispatchTakePictureIntent();
             }
         });
+        FloatingActionButton fab2 = (FloatingActionButton) findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myImageView.buildDrawingCache();
+                Bitmap bmap = myImageView.getDrawingCache();
+                ImageSaver.saveToInternalStorage(bmap);
+            }
+        });
+
+        FloatingActionButton fab3 = (FloatingActionButton) findViewById(R.id.fab3);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myBitmap=ImageSaver.LoadImageFromStorage();
+                myImageView.setImageBitmap(myBitmap);
+
+            }
+        });
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_training);
         navigationView.setNavigationItemSelectedListener(this);
@@ -86,6 +108,7 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
             public void onClick(View v) {
                 _myCV = new ManipulateImage(progress, myImageView, myBitmap, 1);
                 _myCV.execute("");
+
             }
         });
         //reset button
@@ -114,16 +137,9 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
                 //execute manipulation
                 _myCV = new ManipulateImage(progress, myImageView, myBitmap, 2, progressChanged);
                 _myCV.execute("");
+
             }
         });
-
-
-
-
-
-
-
-
     }
 
     @Override
@@ -172,9 +188,6 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
         int id = item.getItemId();
 
         if (id == R.id.training) {
-
-
-
         } else if (id == R.id.recognition) {
             Intent manda = new Intent( getApplicationContext(),Recognition.class);
 
