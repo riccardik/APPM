@@ -17,9 +17,9 @@ import java.io.IOException;
  */
 
 public class ImageSaver {
-    public static String saveToInternalStorage(Bitmap bitmapImage){
+    public static String saveToInternalStorage(Bitmap bitmapImage, String name){
         String directory="/sdcard/download";
-        File mypath=new File(directory,"profile.jpg");
+        File mypath=new File(directory, name+".jpg");
 
         FileOutputStream fos = null;
         try {
@@ -38,11 +38,11 @@ public class ImageSaver {
         return directory;
     }
 
-    public static Bitmap LoadImageFromStorage()
+    public static Bitmap LoadImageFromStorage(String name)
     {
         Bitmap cane=null;
         try {
-            File f=new File("/sdcard/download", "profile.jpg");
+            File f=new File("/sdcard/download", name+".jpg");
             Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
             cane=b;
         }

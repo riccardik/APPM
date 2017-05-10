@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -65,9 +66,12 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
         fab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText imageName=(EditText)findViewById(R.id.imageName);
+                String nome=imageName.getText().toString();
                 myImageView.buildDrawingCache();
                 Bitmap bmap = myImageView.getDrawingCache();
-                ImageSaver.saveToInternalStorage(bmap);
+                ImageSaver.saveToInternalStorage(bmap, nome);
+                myImageView.destroyDrawingCache();
             }
         });
 
@@ -75,8 +79,9 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
         fab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                myBitmap=ImageSaver.LoadImageFromStorage();
+                EditText imageName=(EditText)findViewById(R.id.imageName);
+                String nome=imageName.getText().toString();
+                myBitmap=ImageSaver.LoadImageFromStorage(nome);
                 myImageView.setImageBitmap(myBitmap);
 
             }
