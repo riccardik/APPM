@@ -52,47 +52,14 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
     //int manipulationSelected = 1;
 
     //Function to launch camera application
-   /* private void dispatchTakePictureIntent() {
+   private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }*/
-
-    private void dispatchTakePictureIntent() {
-        values = new ContentValues();
-        values.put(MediaStore.Images.Media.TITLE, "New Picture");
-        values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
-        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            try {
 
-                myBitmap= MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
-
-                myImageView.setImageBitmap(myBitmap);
-
-                //convertImage = new ConvertImage(progress, img, bitmap);
-                //convertImage.execute("");
-                //img.setImageBitmap(newBitmap);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            //imgByte = getBytesFromBitmap(newBitmap);
-            //new PhotoSaver(getApplicationContext(), bitmap).record();
-
-
-
-        }
-    }
 
 
     @Override
@@ -194,7 +161,7 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
             }
         });
     }
-/*
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
@@ -203,7 +170,7 @@ public class Training  extends Activity  implements NavigationView.OnNavigationI
             myBitmap = imageBitmap;
             myImageView.setImageBitmap(imageBitmap);
         }
-    }*/
+    }
     //Function for saving state of activity (for example when going landscape)
     @Override
     public void onSaveInstanceState(Bundle toSave) {
