@@ -9,19 +9,6 @@
 
 
 
-
-
-
-
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_menu_camera" />
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -37,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
         <ImageView
-            android:id="@+id/etImage"
+            android:id="@+id/img1"
             android:layout_width="match_parent"
             android:layout_height="237dp"
             app:srcCompat="@mipmap/ic_launcher"/>
@@ -46,10 +33,37 @@
 
 
         <Button
-            android:id="@+id/bttClickMe2"
-            android:text="Scala di grigio"
-            android:layout_width="match_parent"
-            android:layout_height="37dp" />
+            android:id="@+id/btnDownload"
+            android:text="Download Picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_toEndOf="@+id/upload" />
+
+        <Button
+            android:id="@+id/btnTake"
+            android:text="Take Picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true" />
+
+        <Button
+            android:id="@+id/upload"
+            android:text="Upload picture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/btnTake" />
+
+        <Button
+            android:id="@+id/connect"
+            android:text="Connetti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true" />
 
 
 

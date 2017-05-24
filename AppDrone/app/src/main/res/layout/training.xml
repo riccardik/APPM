@@ -14,14 +14,14 @@
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/btTakePhoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@drawable/ic_menu_camera" />
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab2"
+        android:id="@+id/bttSaveImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
@@ -31,7 +31,7 @@
         app:elevation="10dp" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab3"
+        android:id="@+id/btLoadImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|left"
@@ -40,6 +40,15 @@
         app:srcCompat="@android:drawable/ic_menu_upload"
         app:elevation="10dp" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btConnectServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_menu_upload"
+        app:elevation="10dp" />
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -93,6 +102,12 @@
         <Button
             android:id="@+id/bttClickMe4"
             android:text="Reset"
+            android:layout_width="match_parent"
+            android:layout_height="35dp" />
+
+        <Button
+            android:id="@+id/bottone"
+            android:text="sas"
             android:layout_width="match_parent"
             android:layout_height="35dp" />
 
